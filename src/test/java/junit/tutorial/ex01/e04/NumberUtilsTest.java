@@ -1,4 +1,4 @@
-package junit.tutorial.ex01.e01;
+package junit.tutorial.ex01.e04;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class StringUtilsTest {
+class NumberUtilsTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -28,24 +28,14 @@ class StringUtilsTest {
 
 	@Test
 	void test1() {
-		String result=StringUtils.toSnakeCase("aaa");
-		assertEquals("aaa",result,"toSnakeCaseがエラー");
-		System.out.println(result);
+		boolean result=NumberUtils.isEven(10);
+		assertEquals(true,result,"isEvenが「true」ではありません。");
 		//fail("Not yet implemented");
 	}
 	@Test
 	void test2() {
-		String result=StringUtils.toSnakeCase("HelloWorld");
-		assertEquals("hello_world",result,"toSnakeCaseがエラー");
-		System.out.println(result);
-		//fail("Not yet implemented");
+		boolean result=NumberUtils.isEven(7);
+		assertEquals(false,result,".isEvenが「false」ではありません。");
 	}
-	@Test
-	void test3() {
-		String result=StringUtils.toSnakeCase("practiceJunit");
-		assertEquals("practice_junit",result,"toSnakeCaseがエラー");
-		System.out.println(result);
-	}
-
 
 }

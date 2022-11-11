@@ -1,4 +1,4 @@
-package junit.tutorial.ex01.e01;
+package junit.tutorial.ex01.e03;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class StringUtilsTest {
+class CounterTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -20,6 +20,7 @@ class StringUtilsTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		
 	}
 
 	@AfterEach
@@ -28,24 +29,22 @@ class StringUtilsTest {
 
 	@Test
 	void test1() {
-		String result=StringUtils.toSnakeCase("aaa");
-		assertEquals("aaa",result,"toSnakeCaseがエラー");
-		System.out.println(result);
-		//fail("Not yet implemented");
+		Counter counter=new Counter();
+		int result=counter.increment();
+		assertEquals(1,result,"incrementが「1」ではありません。");
+		//System.out.println(result);
 	}
+	
 	@Test
 	void test2() {
-		String result=StringUtils.toSnakeCase("HelloWorld");
-		assertEquals("hello_world",result,"toSnakeCaseがエラー");
+		Counter counter=new Counter();
+		int result=counter.increment();
+		while(result<=50)	{
+			result++;
+			result=counter.increment();
+			assertEquals(51,result,"incrementが「51」ではありません。");
 		System.out.println(result);
-		//fail("Not yet implemented");
+		}
 	}
-	@Test
-	void test3() {
-		String result=StringUtils.toSnakeCase("practiceJunit");
-		assertEquals("practice_junit",result,"toSnakeCaseがエラー");
-		System.out.println(result);
-	}
-
 
 }
