@@ -34,10 +34,13 @@ class EmployeeTest {
 
 	@Test
 	void test() {
-		Employee employee=new Employee();
-		List<Employee> empList = new ArrayList<>();
 		InputStream input = getClass().getResourceAsStream("Employee.txt");
-		System.out.println(input);
+		List<Employee> actual = Employee.load(input);
+		Employee employee = actual.get(0);
+				assertEquals(1, actual.size());
+				assertEquals("Ichiro", employee.getFirstName());
+			    assertEquals("Tanaka", employee.getLastName());
+			    assertEquals("ichiro@example.com", employee.getEmail());
 	}
 
 }
