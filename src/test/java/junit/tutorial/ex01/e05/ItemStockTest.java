@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ItemStockTest {
-//Item item1=new Item("apple",200);
-//Item item2=new Item("book",2000);
+Item item1=new Item("apple",200);
+Item item2=new Item("book",2000);
 Item item =new Item(null,0);
 
 
@@ -46,11 +46,35 @@ Item item =new Item(null,0);
 	@Test
 	void test2() {
 		ItemStock itemStock=new ItemStock();
+		itemStock.add(item);
 		
 		int result=itemStock.getNum(item);
 		System.out.println(result);
 		assertEquals(1,result,"getNumが「1」ではありません。");
 	}
+	@Test
+	void test3() {
+		ItemStock itemStock=new ItemStock();
+		itemStock.add(item1);
+		itemStock.add(item1);
+		itemStock.getNum(item1);
+		
+		int result=itemStock.getNum(item1);
+		System.out.println(result);
+		assertEquals(2,result,"getNumが「2」ではありません。");
+	}
+	@Test
+	void test4() {
+		ItemStock itemStock=new ItemStock();
+		itemStock.add(item);
+		itemStock.add(item1);
+		itemStock.getNum(item);
+		
+		int result=itemStock.getNum(item);
+		System.out.println(result);
+		assertEquals(2,result,"getNumが「2」ではありません。");
+	}
+
 
 
 }
